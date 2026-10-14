@@ -1,20 +1,23 @@
 spring:
+  application:
+    name: student-tracking
+
   datasource:
-    url: jdbc:posgresql://localhost:5432/student_tracking
-    username: postgres
-    password: YOUR_PASSWORD
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/student_tracking
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
 
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: validate
+    open-in-view: false
     properties:
       hibernate:
         format_sql: true
 
-  application:
-    name: student-tracking
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
 server:
   port: 8080

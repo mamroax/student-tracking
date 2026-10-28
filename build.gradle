@@ -30,6 +30,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-flyway'
 	runtimeOnly 'org.flywaydb:flyway-database-postgresql'
 	implementation 'org.modelmapper:modelmapper:3.2.2'
+	//TODO добавить lombock  и прописать allargsconstructor и noargsconstructor(buider, getter, setter)
 }
 
 tasks.named('test') {

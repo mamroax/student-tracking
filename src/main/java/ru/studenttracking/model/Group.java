@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class StudentGroup {
+public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "group_id_gen")
     @SequenceGenerator(name = "group_id_gen", sequenceName = "group_id_seq", allocationSize = 1)

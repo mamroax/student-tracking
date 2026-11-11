@@ -6,4 +6,5 @@ import ru.studenttracking.model.Student;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
+    //TODO Просто делаем метод save сохраняющий подготовленного в серисе энтити студента
 }

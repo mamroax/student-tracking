@@ -26,5 +26,7 @@ public class Group {
     @JoinTable(name = "student_groups_students", joinColumns = @JoinColumn(name = "student_group_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
-    private List<Student> Students = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
 }
+
+

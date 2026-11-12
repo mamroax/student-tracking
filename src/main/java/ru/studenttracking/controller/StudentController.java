@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.studenttracking.dto.StudentDto;
 import ru.studenttracking.service.impl.StudentService;
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/api/students")
@@ -22,7 +24,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public StudentDto createStudent(@RequestBody StudentDto dto){
+    public StudentDto createStudent(@RequestBody @Valid StudentDto dto){
         return studentService.save(dto);
     }
 }

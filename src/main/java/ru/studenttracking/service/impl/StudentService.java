@@ -6,6 +6,9 @@ import ru.studenttracking.mapper.StudentMapper;
 import ru.studenttracking.model.Student;
 import ru.studenttracking.repository.StudentRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class StudentService {
     //TODO Сделать аннотацию @Service
@@ -23,5 +26,14 @@ public class StudentService {
         Student student = studentMapper.toEntity(dto);
         Student savedStudent = studentRepository.save(student);
         return studentMapper.toDto(savedStudent);
+    }
+
+    public List<StudentDto> findAll(){
+        List<StudentDto> students = new ArrayList<>();
+        for (Student student : studentRepository.findAll()){
+            StudentDto dto = studentMapper.toDto(student);
+            students.add(dto);
+        }
+        return students;
     }
 }

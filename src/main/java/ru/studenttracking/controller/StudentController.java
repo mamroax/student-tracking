@@ -1,12 +1,11 @@
 package ru.studenttracking.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.studenttracking.dto.StudentDto;
 import ru.studenttracking.service.impl.StudentService;
 import jakarta.validation.Valid;
+
+import java.util.List;
 
 
 @RestController
@@ -26,5 +25,10 @@ public class StudentController {
     @PostMapping
     public StudentDto createStudent(@RequestBody @Valid StudentDto dto){
         return studentService.save(dto);
+    }
+
+    @GetMapping
+    public List<StudentDto> getAllStudents(){
+        return studentService.findAll();
     }
 }

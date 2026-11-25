@@ -1,5 +1,6 @@
 package ru.studenttracking.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.studenttracking.dto.StudentDto;
 import ru.studenttracking.service.impl.StudentService;
@@ -7,7 +8,7 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
@@ -17,10 +18,6 @@ public class StudentController {
     // StudentDto должен в котроллере быть внутри FrontendDto FrontendRequsetDto
     // Контроллер RestController
     private final StudentService studentService;
-
-    public StudentController(StudentService studentService){
-        this.studentService = studentService;
-    }
 
     @PostMapping
     public StudentDto createStudent(@RequestBody @Valid StudentDto dto){
